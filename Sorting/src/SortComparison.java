@@ -1,18 +1,35 @@
+import java.awt.List;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
+import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.*;
 
+
+
+/*								Insert			Quick			Merge Recursive			Merge Iterative		Selection
+ * 10 Random					2415ns			137050ns		11069ns					4226ns				2113ns
+ * 100 Random					91065ns			130912ns		111592ns`				968508ns			121755ns
+ * 1000 Random					893141ns		215134ns		134232ns				43205022ns			1120149ns
+ * 1000 Few Unique				
+ * 1000 Nearly Ordered
+ * 1000 Reverse Ordered
+ * 1000 Sorted
+ */
 class SortComparison {
 
-	public static void main(String[] args) {
-		/*
-    	double[] a = {1,4,0,9,3};
-    	System.out.println(Arrays.toString(a));
-    	mergeSortRecursive(a);
-    	System.out.println(Arrays.toString(a) + " ! ");
-    	*/
+	public static void main(String[] args){
+
+
 	}
 	
+
     /**
      * Sorts an array of doubles using InsertionSort.
      * This method is static, thus it can be called as SortComparison.sort(a)
@@ -49,7 +66,7 @@ class SortComparison {
 		return a;
     }
     
-    /*Recursive method used for quicksort*/
+    /*Recursive method used for quicksort */
     private static void sortQuick(double[] a, int lo, int hi){
     	if(hi <= lo) return; //already sorted
     	int j = partition(a, lo, hi);
@@ -179,7 +196,7 @@ class SortComparison {
     }
     
     /*Checks if array is sorted */
-    private static boolean isSorted(double[] a){
+    public static boolean isSorted(double[] a){
     	boolean sorted = true;
     	
     	for(int i = 0; i < a.length-1; i++){
@@ -217,5 +234,15 @@ class SortComparison {
         a[x] = a[y];
         a[y] = temp;
     } 
-
+    
+    /* Copy array method used for copying one array to another for purpose of Algorithm testing */
+    public static double[] copyArray(double[] a, int length){
+    	double[] copy = new double[length];
+    	
+    	for(int i =0; i < length; i++){
+    		copy[i] = a[i];
+    	}
+    	return copy;
+    }
+	
 }
